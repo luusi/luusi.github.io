@@ -5,8 +5,8 @@ description: Master of Science in Engineering in Computer Science
 date: 2021-04-16 22:00:00 UTC
 image: _pages/Multi_UAV/scenario.png
 authors:
-  - name: Alessandro Trapasso
-    url: https://alee08.github.io
+  - name: Luciana Silo
+    url: https://luusi.github.io
   - name: Supervised by Prof. Luca Iocchi
     url: https://sites.google.com/a/dis.uniroma1.it/iocchi/home
 permalink: /Multi-UAV_RL_RB
