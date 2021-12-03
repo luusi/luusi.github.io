@@ -10,9 +10,9 @@ encrypt or verify a message to/from me.
 
 - Import the public key
 ```
-curl hhttps://alee08.github.io/assets/public_pgp.txt | gpg --import
+curl hhttps://luusi.github.io/assets/public_pgp.txt | gpg --import
 # or
-# curl https://keybase.io/alessandrotrapasso/pgp_keys.asc | gpg --import
+# curl https://keybase.io/lucianasilo/pgp_keys.asc | gpg --import
 ```
 
 - Encrypt a message:
