@@ -1,37 +1,26 @@
-## Welcome to GitHub Pages
+My personal webpage.
 
-You can use the [editor on GitHub](https://github.com/luusi/luusi.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+Link: https://luusi.github.io/
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Preliminaries
+Follow this guide to set up your Ruby development environment.
 
-### Markdown
+Install Ruby version 2.7.1:
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+rbenv install 2.7.1
+Install bundler:
 
-```markdown
-Syntax highlighted code block
+gem install bundler
+Then:
 
-# Header 1
-## Header 2
-### Header 3
+bundle install
+Build
+To build the Jekyll website:
 
-- Bulleted
-- List
+bundle exec jekyll build
+To serve:
 
-1. Numbered
-2. List
+bundle exec jekyll serve
+To publish on GitHub, from the source branch:
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/luusi/luusi.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+rake publish
