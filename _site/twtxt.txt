@@ -15,13 +15,13 @@
 #
 # --------------------------------
 #
-#    nick : alee08
-#     url : https://alee08.github.io/twtxt.txt
+#    nick : luusi
+#     url : https://luusi.github.io/twtxt.txt
 #    lang : en
 #     geo : Earth->ITA->Rome
-#   email : ale.trapasso8@gmail.com
-#     web : https://alee08.github.io/
-#  github : https://github.com/alee08/
+#   email : luciana.silo12@gmail.com
+#     web : https://luusi.github.io/
+#  github : https://github.com/luusi/
 #
 #
 #  \o/ A thing of beauty is a joy forever... \o/
