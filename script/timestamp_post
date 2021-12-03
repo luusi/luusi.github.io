@@ -26,4 +26,3 @@ pandoc -N -s --resource-path "$post_dir" --bibliography=${bibliography_path}\
 echo "Timestamping"
 pipenv run ots stamp ${pdf_output_file}
 rm $temp_markdown_path
-
