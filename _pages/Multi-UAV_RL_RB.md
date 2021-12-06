@@ -1,17 +1,17 @@
 ---
 layout: post_page
-title: Multi-UAV reinforcement learning with temporal and priority goals
+title: Digital Twins Composition via Markov Decision Processes
 description: Master of Science in Engineering in Computer Science 
 date: 2021-04-16 22:00:00 UTC
 image: _pages/Multi_UAV/scenario.png
 authors:
   - name: Luciana Silo
     url: https://luusi.github.io
-  - name: Supervised by Prof. Luca Iocchi
-    url: https://sites.google.com/a/dis.uniroma1.it/iocchi/home
-permalink: /Multi-UAV_RL_RB
+  - name: Supervised by Prof. Giuseppe De Giacomo
+    url: https://www.diag.uniroma1.it/~degiacom/
+permalink: /DT_Composition_via_MDP
 includelink: true
-identifier: /Multi-UAV_RL_RB
+identifier: /DT_Composition_via_MDP
 order: 4
 bibliography: _pages/Multi_UAV/Multi-UAV.bib
 
