@@ -17,10 +17,7 @@ bibliography: _pages/Multi_UAV/Multi-UAV.bib
 
 ---
 
-Unmanned aerial vehicles (UAVs) are becoming more and more in demand, their use initially spread for the execution of military missions, now it is becoming increasingly popular in the civilian field. UAVs are involved in the most exterminated missions. In this thesis, we address the problem of the risk of conflicts between UAVs and then analyze it in a specific scenario. 
-Minimizing the risk of collision is extensively covered in the [_BUBBLES project_](http://bubbles-project.eu/).
-The [_BUBBLES project_](http://bubbles-project.eu/) is a large project funded by the _European community_, coordinated by the _Universitat Politècnica de València_ with the participation of the [_DIAG_](https://www.dis.uniroma1.it/en), [_Sapienza University of Rome_](https://www.uniroma1.it/en/pagina-strutturale/home) coordinated by [Prof. Luca Iocchi](https://sites.google.com/a/dis.uniroma1.it/iocchi/home). 
-The focus of the _Sapienza unit_ is to implement methods to generate many trajectories for risk assessment.
+The use of Digital Twins is key in Industry 4.0, in the Industrial Internet of Things, engineering, and manufacturing business space. For this reason, they are becoming of particular interest for different fields in Artificial Intelligence (AI) and Computer Science (CS). In this work, we focus on the orchestration of Digital Twins. We manage this orchestration using Markov Decision Processes (MDP), given a specification of the behaviour of the target service, to build a controller, known as an orchestrator, that uses existing stochastic services to satisfy the requirements of the target service. The solution to this MDP induces an orchestrator that coincides with the exact solution if a composition exists. Otherwise, it provides an approximate solution that maximizes the expected discounted sum of values of user requests that can be serviced. We formalize stochastic service composition and we present a proof-of-concept implementation, and we discuss a case study in an Industry 4.0 scenario.
 
 ## Scenario Characteristics 
 As it was previously said, the application scenarios in which _UAVs_ can be used are very many, the scenario that is examined in this thesis project concerns the delivery of medical supplies between hospitals in a metropolis.
