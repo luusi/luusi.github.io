@@ -5,5 +5,5 @@
 #  link: /blog
 #- name: Publications
 #  link: /papers
-- name: Multi-UAV RL with temporal & priority goals
-  link: /Multi-UAV_RL_RB
+- name: Digital Twins Composition via Markov Decision Processes
+  link: /DT_Composition_via_MDP
