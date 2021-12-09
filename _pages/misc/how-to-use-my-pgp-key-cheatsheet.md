@@ -18,7 +18,7 @@ curl hhttps://luusi.github.io/assets/public_pgp.txt | gpg --import
 - Encrypt a message:
 ```
 echo "A saucerful of secrets" > message.txt
-gpg --output message.txt.gpg --encrypt --recipient ale.trapasso8@gmail.com message.txt
+gpg --output message.txt.gpg --encrypt --recipient luciana.silo12@gmail.com message.txt
 ```
 
 - Sign message:
