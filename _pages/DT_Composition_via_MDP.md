@@ -19,18 +19,40 @@ bibliography: _pages/Multi_UAV/Multi-UAV.bib
 
 The use of Digital Twins is key in Industry 4.0, in the Industrial Internet of Things, engineering, and manufacturing business space. For this reason, they are becoming of particular interest for different fields in Artificial Intelligence (AI) and Computer Science (CS). In this work, we focus on the orchestration of Digital Twins. We manage this orchestration using Markov Decision Processes (MDP), given a specification of the behaviour of the target service, to build a controller, known as an orchestrator, that uses existing stochastic services to satisfy the requirements of the target service. The solution to this MDP induces an orchestrator that coincides with the exact solution if a composition exists. Otherwise, it provides an approximate solution that maximizes the expected discounted sum of values of user requests that can be serviced. We formalize stochastic service composition and we present a proof-of-concept implementation, and we discuss a case study in an Industry 4.0 scenario.
 
-## Scenario Characteristics 
-As it was previously said, the application scenarios in which _UAVs_ can be used are very many, the scenario that is examined in this thesis project concerns the delivery of medical supplies between hospitals in a metropolis.
-In our scenario, hospitals in the city of Rome are represented on the grid. Each hospital can request medicines, organs, vaccines, blood from one of the other $\mathcal{n-1}$ hospitals in the city.
-
-| ![](_pages\Multi_UAV\scenario.png)| 
-|:--:| 
-| Scenario |
-
-Each _UAV_ must take the resource from a specific hospital and deliver it to the hospital that requested it.
-UAVs must visit hospitals in a given order and must respect the mission priority assigned to them.
-
-Another main goal is to reduce to 0 or in any case minimize the possible collisions between UAVs.
+## Introduction 
+The continuous evolution of technologies in the fields of communication, networking, storage and computing, applied to the more traditional world of industrial automation, in order to increase productivity and quality, to ease workers’ lives, and to define new business opportunities, has created the so-called smart
+manufacturing, or Industry 4.0. Digital Twins (DTs)1 are up-to-date digital descriptions of physical objects and their operating status. Modern information
+systems and industrial machines may natively come out with their digital twin; in other cases especially when the approach is applied to already established
+factories and production processes, digital twins are obtained by wrapping actors that are already in place. The main goal is to establish a tight integration
+between the physical world and the virtual world, in order to make production 
+more efficient, reliable, flexible and faster. The Digital Twin is an ideal tool to
+accomplish the purpose of Industry 4.0, since it enables massive exchange of data
+that can be interpreted by analytical tools, in order to improve decision making.
+Inspired by the research about automatic orchestration and composition of
+software artifacts, such as Web services, in [4] it has been argued that an important step towards the development of new automation techniques in smart
+manufacturing is the modeling of DT services and data as software artifacts,
+and that the principles and techniques for composition of artifacts in the digital
+world can be leveraged to improve automation in the physical one. In particular, inspired by the Roman model for service composition [2, 1], they consider
+smart manufacturing scenarios where DTs of physical systems —or, simply, twins
+—provide stateful services wrapping the functionalities of machines and tasks
+of human operators. Nevertheless, there is an inherent limitation of approach
+based on the classical Roman model, which is the assumption that the available services, i.e. the services that can be used to realize the target service,
+behave deterministically. This assumption is often unrealistic, because in practice the underlying physical system modeled as a set of services might show
+non-deterministic behaviour due to the complexity of the domain, or due to an
+inherent uncertainty on the dynamics of such system. In these cases, the deterministic service model is not expressive enough to capture crucial facets of the
+system being modelled. Moreover, the above-mentioned techniques work only
+when the target is fully realizable, i.e. the specification can either be satisfied
+or not, with no middle ground. In the context of Industry 4.0 this might be
+seldom the case, and instead it would be preferred a technique that, rather than
+returning no answer, returns the “best-possible” solution under the actual circumstances. The work [3] contributes in this direction by providing a solution
+technique that coincides with the exact solution if a composition exists; otherwise it provides an approximate solution that maximizes the expected sum of
+values of the target service’s requests. Unfortunately, such model is not expressive enough to capture the non-determinsitic behaviour of the available services
+which, as argued above, is a must-have in our setting.
+In this paper, we marry the vision of employing service composition techniques to orchestrate digital twins. We propose a generalization to the service
+composition in stochastic setting proposed in [3], in which not only the target
+but also the services are allowed to behave stochastically. Moreover, we allow
+the services to be taken into account in the optimization problem by associating
+a reward to each service’s transition, besides the target’s rewards.
 
 ## Objectives of the abstract problem
 The objectives of the abstract problem are:
