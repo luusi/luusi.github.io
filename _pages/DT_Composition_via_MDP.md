@@ -61,7 +61,7 @@ the services to be taken into account in the optimization problem by associating
 a reward to each service’s transition, besides the target’s rewards.
 
 ## Preliminaries
-MDPs.</b>
+<b>MDPs.</b>
 A Markov Decision Process (MDP) $\M =
 \langle S,A,T,R\rangle$ contains a set $S$ of states, a set $A$ of actions, a
 transition function $T : S\times A \to Prob(S)$ that returns for
@@ -203,81 +203,72 @@ It can be shown that, under certain assumptions (i.e. target is realizable, ever
 
 
 
-## Restraining Bolt augmented
-$\mathcal{RB_i^\mathcal{+}}=\mathcal\langle\ \mathcal{L}, (\varphi_{i}, r_{i}, P_{i}) \rangle$
+## Solution technique
+The solution technique is based on finding an optimal
+	policy for the <i>composition MDP</i>.
+The composition MDP is a function of the system service and the target service as follows: $\tilde{\M}(\tilde{\Z}, \tilde{T}) = \langle S_{\tilde\M}, A_{\tilde\M}, T_{\tilde\M}, R_{\tilde\M} \rangle$, where $S_{\tilde\M}= \Sigma_{\tilde\Z}\times \Sigma_{\tilde\T} \times A \cup \{s_{\M0}\}$, $A_{\tilde\M}=\{a_{\M0},1,\dots,n\}$, $T_{\tilde\M}(s_{\M0},a_{\M0},(\sigma_{z0},\sigma_{t0},a)) = P_t(\sigma_{t0},a)$, $T_{\tilde\M}((\sigma_z,\sigma_t,a),i,(\sigma'_z,\sigma'_t,a'))= P_t(\sigma'_t,a')\cdot P_z(\sigma_z'\mid \sigma_z, \langle a,i\rangle)$,
+        if $P_z(\sigma'_z \mid \sigma_z, \langle a,i\rangle)>0$
+    and $\sigma_t \xrightarrow{a}\sigma'_t$ and $0$ otherwise,
+    $R_{\tilde\M}((\sigma_z,\sigma_t,a),i) = 
+        R_t(\sigma_t,a) + R_z(\sigma_z, \langle a, i\rangle)$,
+        if $(a,i)\in A(\sigma_z)$ and $0$ otherwise.
 
-The behaviour of each agent is learned through the use of _Reinforcement Learning_ and _Restraining Bolt_.
-Restraining Bolt was introduced in 2019 by (De Giacomo et al., 2019)<d-cite key="restraining"> restraining </d-cite> , this thesis work extends the original $\mathcal{RB}$ by adding the concept of priority.
+This definition is pretty similar to the construction
+proposed in \cite{brafman2017service}, with the difference that now,
+in the transition function,
+we need to take into account also the probability of transitioning
+to the system successor state $\sigma'_z$ from $\sigma_z$ doing 
+the system action $\langle a, i\rangle$, 
+i.e. $P_z(\sigma'_z\mid \sigma_z, \langle a, i\rangle)$.
+Moreover, in the reward function, we need to take into account
+also the reward observed from doing system action 
+$\langle a, i\rangle$ in $\sigma_z$, and sum it to the 
+reward signal coming from the target.
+By construction, if $\rho$ is an optimal policy, then the orchestrator $\gamma$ such that
+$\gamma(\sigma_z,\sigma_t,a) = \rho(\langle \sigma_z,\sigma_t,a\rangle$ is an optimal orchestrator.
 
-Each $\mathcal{RB}$ is a tuple that contains:
-- $\mathcal{L}$ is the set of fluids,  in the case study is the colours assigned to hospitals
-- each agent $\alpha_i$ has a goal ($\phi_i, P_i$) where is the _LTLf/LDLf_ formula that the agent must satisfy. 
-- $P_i$ is a non-negative integer associated with this formula to indicate its priority.
-- $r_i$ is the reward associated with formula $\phi_i$
+To summarize, given the specifications of the set of stochastic services and the target service, first compute the composition MDP, then find an optimal policy for it, and then deploy the policy in an orchestration setting and dispatch the request to the chosen service according to the computed policy.
+### Use case
+Consider the following scenario: there is an industrial process of ceramics production in which a product must be processed sequentially in different ways.
+	Each sub-task can be completed by a set of <i>available services</i>. The tasks
+to be carried out in order to complete the industrial process are: provisioning, moulding, drying,
+first baking, enamelling, painting, second baking and shipping. Such tasks can be accomplished
+by different types of machines or human workers. Each available service that can perform the
+task can be seen as finite state machines with a probability and a reward associated to each
+action. There could be multiple services for the same task, e.g. multiple version of a machine
+(new one and old one) and a human that can perform the task required, and so on.
+% 
+When an available service is being assigned a task, this has a <i>task cost</i> in terms of time taken
+and resources needed for the completion of the operation on that specific service. 
+Usually, in terms of task cost, machines are cheaper
+than human workers, because they can perform their task much faster. However, the machines
+have a certain probability to <i>break</i> when they perform their job. In such a case, the machine
+must be repaired as soon as the operation has been carried out, that incurs in a <i>repair cost</i> for
+that specific machine.
 
-### Reinforcement Learning + Restraining Bolt augmented
-In the _RL_ the agent performs an action and receives a reward and an observation from the environment. With the _Bolt_, the agent receives two independent rewards, one from the _MDP_ for each _state/action_ and another from the $\mathcal{RB}$ based on the state of the automata, which follows the satisfaction state of the $\phi_i$, formula.
+From the above description of the use case scenario, it is clear that the composition technique
+must be able to handle the stochasticity of the available services’ transitions, as well as their reward/cost. Indeed, an optimal orchestration depends on several parameters, like the task costs,
+the breaking probabilities and the repair costs, one for each candidate service for accomplishing a
+certain task. Therefore, it is not straightforward to determine a priori which service a certain
+task must be assigned to. For example, it might be the case that despite the task cost of a
+machine is low, its breaking probability might be high, and considering the repair cost it might
+let us to prefer a human worker for that task. We argue that our model can fit very well our
+use case. Indeed, we can reduce the problem to an instance of stochastic service composition
+suggested above in which a service can capture the task cost, the breaking probability, and the
+repair cost.
 
-| ![](_pages\Multi_UAV\RL-RB+.gif)| 
-|:--:| 
-| Reinforcement Learning + Restraining Bolt augmented |
-
-
-Each agent will try to maximize the rewards to find an optimal policy.
-The concept of priority permits finding incremental policies. The system is scalable, and each agent learns independently.
-
-
-## Proposed Solution
-Minimizing the risk of collision is a fundamental requirement to carry out _Multi-UAV_ missions safely, this requirement is more important than efficiency and must be guaranteed.
-Another fundamental objective of this thesis is the management of missions according to their priority.
-Hence, each _UAV_ must reach its goal in the shortest possible time based on the priority of the task assigned to it, ensuring _safety_.
-
-Our solution is given to find  $n$ policies $\rho_{\mathcal{a g}_{i}}$, one for each agent $\alpha_i$, that are individually optimal concerning each agent's goal, and that in the case of conflicts, they are always resolved in favour of the agent who has a goal with higher priority (lower value of $P_i$).
-
-To eliminate interference between agent policies, we define a new _"no-interference" reward function_ $ N\_{\mathcal{ag}\_{i}}$ for each agent.
-The $ N\_{\mathcal{ag}\_{i}}$ function is computed by applying, to the original reward function  $R\_{\mathcal{ag}\_{i}}$  a modifier $\mathcal{\tau_i}$ that depends on the trajectories generated by the execution of the optimal policy $\rho_{\mathcal{a g}\_{i}}$ of agents with higher priority goals.
-Each agent must satisfy its $\varphi_{i}$ formula and must respect the priority value assigned to this goal.
-
-
-- If the agent $ \alpha_i $ has $ P_i = 0 $ (highest priority), then $ N_{\mathcal{ag}\_{i}}$ equals the reward function $ R_{\mathcal{ag}\_{i}}$.
-- If the agent $ \alpha_i $ has $ P_i > 0 $, then $ N\_{\mathcal{ag}\_{i}} $ reward function is the sum of the reward function $ R_{\mathcal{ag}\_{i}}$ of the agent $\alpha_i$ and of a modifier $\mathcal{\tau_i}$ that depends on the trajectories generated by optimal policies of agents $\alpha_j$ for which $P_j < P_i$.
-
-
-_More formaly:_
-<p style="text-align: center;">
-$N_{\mathcal{ag}\_{i}} = R\_{\mathcal{a g}\_{i}} + f ( \{ \tau_j | \alpha_j \ s.t.\ P_j < P_i \})$
-</p>
-
-$ N\_{\mathcal{ag}\_{i}} $ is defined on the basis of the policies obtained from the agents $\alpha_j$, who have a higher priority $P_j < P_i$.
-
-Note that, we admit non-deterministic behaviour during optimal policy execution. However, we assume that the variability of the trajectories is limited so that it is possible to define a modifier function $f$ removing interference.
-
-
-
-
-## Case study
-The case study is a model of our hospital's problem in which the world is represented in a grid.
-$\mathcal{RB_i}$ gives a positive reward if the agent does _hovering/beep_ in the right order on the cells of the hospitals.
-In our case, the no-interference reward has been implemented by adding negative weights on the cells crossed by the trajectories of the previous agents.
-
-| ![](_pages\Multi_UAV\LDLf.png)| 
-|:--:| 
-| The missions of each _UAV_ is specified by _LDLf_ formulas  |
-
-
-The _LTLf/LDLf_ formulas specify the mission of each _UAV_ and the temporal order of the goals.
-The _RL_ algorithm used for the experiments is _SARSA_, _State – action – reward – state – action_, but we should use also other RL algorithms.
-
-| ![](_pages\Multi_UAV\ex3.gif) | ![](_pages\Multi_UAV\ex4.gif) |
-|:-------------------------:|:-------------------------:|
-| Experiment 3. Without priority | Experiment 4. With priority |
-
-As we can see in experiment 1 without priority, the trajectories of the UAVs intersect with each other. In experiment 2 we resolve these conflicts with priority and with our _no-interference reward functions_.
-The purple _UAV_ has the highest priority so its trajectory is the same in both experiments. The orange _UAV_ has priority 1, and the grey _UAV_ has priority 2.
-It is possible to perform experiments by increasing the size of the map, the number of goals and agents.
 
 ### Conclusion
 
-Our system is scalable, and we can generate hundreds of trajectories at a lower cost than a standard Multi-agent algorithm, in which case the cost would be exponential.
-Our method finds an optimal policy for each agent, reducing interference between agents policies.
-From the execution of the policies, we generate trajectories with a lower frequency of conflict.
+In this paper, we have proposed an extension to previous work
+on stochastic service composition, in which also the services are allowed
+to have stochastic behaviour and rewards on the state transitions.
+We formally specified the problem and proposed a solution based on a
+reduction to MDPs. Furthermore, we motivated the contribution
+by showing how it is well-suited for a realistic Industry 4.0 scenario.
+As a future work, we would like to investigate different improvements
+such as: the possibility of including exception handling,
+having separate rewards specifications for the target, employing
+high-level formalisms to express a non-Markovian reward (e.g. LTL),
+and to employ learning techniques to learn a model of the target
+behaviour from data.
