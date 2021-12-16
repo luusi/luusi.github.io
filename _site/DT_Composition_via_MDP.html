@@ -228,49 +228,97 @@ solution can be found by solving an appropriate probabilistic planning problem (
 derived from the services and requirement specifications.
 Due to lack of space, we do not report the details of such technique. </p>
 
+<h2 id="problem">Problem</h2>
+<p>Before stating the problem, we give preliminary definitions.
+A <i>stochastic service</i> is a tuple
+$\tilde{\S} = \langle \Sigma_s, \sigma_{s0}, F_s, A, P_s, R_s\rangle$, 
+where $\Sigma_s$ is the finite set of service states,  $\sigma_{s0}\in \Sigma$ is the initial state, $F_s\subseteq\Sigma_s$ is the set of the service's final state, $A$ is the finite set of services' actions,
+$P_s: \Sigma_s\times A \to Prob(\Sigma_s)$ is the transition function,
+and $R_s : \Sigma_s\times A\to \mathbb{R}$ is the reward function.
+In short words, the stochastic service is the stochastic variant
+of the service defined in the classical Roman model, and it can be seen as an MDP itself.
 
-<h2 id="assumptions">Assumptions</h2>
-<ul>
-  <li>We assume a global clock, which measures the time during the evolution of the scenario for each agent $\alpha_i$, from 0 to T.</li>
-  <li>Let’s consider a set of asynchronous goals, in which each agent can decide to execute its task at any time independently from the other agents.</li>
-  <li>Each agent does not know where the other agents are at any given instant of time.</li>
-</ul>
+A <i>target service</i>, as defined in \cite{brafman2017service}, is $\T= \langle \Sigma_t, \sigma_{t0}, F_t, A, \delta_t,P_t,R_t\rangle$, 
+where 
+$\Sigma_t$ is the finite set of service states,
+$\sigma_{t0}\in \Sigma$ is the initial state,
+$F_t\subseteq\Sigma$ is the set of the service's final state,
+$A$ is the finite set of services' actions,
+$\delta_{t}: \Sigma\times A \to \Sigma$
+is the service's deterministic and partial transition function,
+$P_t: \Sigma_t \to \pi(A) \cup \emptyset$ is the action distribution function, 
+$R_t : \Sigma_t \times A \to \mathbb{R}$ is the reward function.
 
-<h2 id="problem-definitions">Problem Definitions</h2>
-<p>The scenario of our case study is a tuple defined as follows:</p>
+A <i>stochastic system service</i> $\tilde{\Z}$ 
+of a community of stochastic services  $\tilde{\C}=\{\tilde{\S_1},\dots,\tilde{\S_n}\}$ is a stochastic service
+where $\tilde{\Z} = \langle \Sigma_z, \sigma_{z0}, F_z, A, P_z, R_z\rangle$ are defined as follows:
+$\Sigma_z = \Sigma_1 \times \cdots \times \Sigma_n$,
+$\sigma_{z_0} = (\sigma_{10}, \dots, \sigma_{n0})$,
+$F_z = \{ (\sigma_1, \dots, \sigma_n) \mid \sigma_i\in F_i, 1\le i \le n\}$,
+$A_z = A \times \{1,\dots n\}$ is the set of pairs $(a, i)$ formed 
+by a shared action $a$ and the index $i$ of the service that executes it,
+$P_z(\bm{\sigma'} \mid \bm{\sigma}, (a, i)) = P(\sigma_i' \mid \sigma_i, a)$, for $\bm{\sigma} = (\sigma_1\dots\sigma_n)$,
+$\bm{\sigma'} = (\sigma_1'\dots\sigma_n')$
+and $a\in A_i(\sigma_i)$,
+with $\sigma_i\in\Sigma_i$ and  $\sigma_j = \sigma'_j$ for $j\neq i$,
+$R_z(\bm{\sigma}, (a, i)) = R_i(\sigma_i, a)$ for $\bm{\sigma}\in \Sigma_z$, $a\in A_i(\sigma_i)$.
 
-<p>A Scenario $\mathcal{S}  = \langle \mathcal{A, M, RB} \rangle $.</p>
+We define the set of joint histories of the target and the system service
+as $H_{t,z} = \Sigma_t\times\Sigma_z \times (A\times \Sigma_t\times\Sigma_z)^*$. A joint history
+$h_{t,z}=\sigma_{t,0}\sigma_{z,0}a_1\sigma_{t,1}\sigma_{z,1}a_2\dots$ is an element of $H_{t,z}$. 
+The projection of $h_{t,z}$ over the target (system)
+actions is $\pi_t(h_{t,z}) = h_t$ ($\pi_z(h_{t,z}) = h_z$).
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center"><img src="_pages\Multi_UAV\problem.gif" alt="" /></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">Scenario definition</td>
-    </tr>
-  </tbody>
-</table>
+An orchestrator 
+$\gamma: \Sigma_t\times\Sigma_z\times A \to \{1,\dots,n\}$,
+is a mapping from a state of the target-system service and user action
+$(\sigma_t, \sigma_z, a)\in \Sigma_t\times\Sigma_z\times A$
+to the index $j\in \{1,\dots,n\}$ of the service that must handle it.
+Crucially, since the stochasticity comes also from the services,
+the orchestrator \emph{does} affect the probability of an history $h_{t,z}$.
+Moreover, in general, there are \emph{several} system histories associated to a given 
+target history.
 
-<p>Where $\mathcal{A}$ is the set of agent $ \alpha_i $ modelled by the MDP, in our case each agent is a UAV.
-$\mathcal{RB}$ is the set of Restraining Bolts, which define the behaviour of the UAV to reach the goal.
-The agent interacts with the $ W $ world through actions $ A_i $.</p>
+Let 
+$P_\gamma(h) = \prod_{i=0}^{|h|} P_t \big(\sigma_{t,i}, a_{i+1}\big)
+P_z\big(\sigma_{z,i+1}\mid \sigma_{z,i},\langle a_{i+1},\gamma(\sigma_{t,i}, \sigma_{z,i}, a_{i+1})\rangle)\big)$ be the probability of a (joint) history $h =  \sigma_{t0}\sigma_{z0}\langle a_1,j_1 \rangle \sigma_{t1}\sigma_{z1}\langle a_2,j_2 \rangle\dots$ under orchestrator $\gamma$.
+% 
+Intuitively, at every step, we take into account the probability,
+determined by $P_t$, that the
+user does action $a_{i+1}$ in the target state $\sigma_{t,i}$,
+in conjunction with the probability, determined by $P_z$, that 
+the system service does the transition 
+$\sigma_{z,i}\xrightarrow{(a_{i+1}, j)} \sigma'_{z,{i+1}}$, 
+where $j$ is the choice of the orchestrator at step $i$
+under orchestrator $\gamma$, i.e. $j = \gamma(\sigma_{t,i}, \sigma_{z,i}, a_{i+1})$.
 
-<h2 id="restraining-bolt-augmented">Restraining Bolt augmented</h2>
-<p>$\mathcal{RB_i^\mathcal{+}}=\mathcal\langle\ \mathcal{L}, (\varphi_{i}, r_{i}, P_{i}) \rangle$</p>
+The value of a joint history under orchestrator $\gamma$ 
+is the sum of discounted rewards, both from the target and the system services:
+$v_\gamma(h) = \sum\limits_{i=0}^{|h|} \lambda^i 
+         \bigg(
+            R_t\big(\sigma_{t,i}, a_{i+1}\big) +
+            R_z\big(
+                    \sigma_{z,i}, 
+                    \langle a_{i+1}, \gamma(\sigma_{t,i}, \sigma_{z,i}, a_{i+1})\rangle)
+            \big)
+        \bigg)$
 
-<p>The behaviour of each agent is learned through the use of <em>Reinforcement Learning</em> and <em>Restraining Bolt</em>.
-Restraining Bolt was introduced in 2019 by (De Giacomo et al., 2019)<d-cite key="restraining"> restraining </d-cite> , this thesis work extends the original $\mathcal{RB}$ by adding the concept of priority.</p>
+Intuitively, we take into account both the reward that comes
+from the execution of action $a_{i+1}$ in the target service,
+but also the reward associated to the execution of that action
+in service $j$ chosen by orchestrator $\gamma$.
+% 
+Now we can define the expected value of an orchestrator
+to be:
+$v(\gamma) = \mathbb{E}_{h_{t,z}\sim P_\gamma} \big[v_\gamma(h_{t,z})\cdot realizable(\gamma, \pi_t(h_{t,z})) \big]$
+where $realizable(\gamma,\pi_t(h_{t,z}))$ is 1 if $h_t = \pi_t(h_{t,z})$ 
+is realizable in $\gamma$ (i.e. all the possible target histories are processed correctly), and $0$ otherwise. That 
+is, $v(\gamma)$ is the expected value of histories realizable in $\gamma$. 
+Finally, we define an optimal orchestrator to be
+$\gamma = \arg \max_{\gamma'} v(\gamma')$.
 
-<p>Each $\mathcal{RB}$ is a tuple that contains:</p>
-<ul>
-  <li>$\mathcal{L}$ is the set of fluids,  in the case study is the colours assigned to hospitals</li>
-  <li>each agent $\alpha_i$ has a goal ($\phi_i, P_i$) where is the <em>LTLf/LDLf</em> formula that the agent must satisfy.</li>
-  <li>$P_i$ is a non-negative integer associated with this formula to indicate its priority.</li>
-  <li>$r_i$ is the reward associated with formula $\phi_i$</li>
-</ul>
+It can be shown that, under certain assumptions (i.e. target is realizable, every history has strictly positive value, and the target's rewards are always greater than services' rewards),
+	optimality of the orchestrator implies that the target is realized by the orchestrator.</p>
 
 <h3 id="reinforcement-learning--restraining-bolt-augmented">Reinforcement Learning + Restraining Bolt augmented</h3>
 <p>In the <em>RL</em> the agent performs an action and receives a reward and an observation from the environment. With the <em>Bolt</em>, the agent receives two independent rewards, one from the <em>MDP</em> for each <em>state/action</em> and another from the $\mathcal{RB}$ based on the state of the automata, which follows the satisfaction state of the $\phi_i$, formula.</p>
