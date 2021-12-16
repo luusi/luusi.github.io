@@ -185,7 +185,7 @@ the services to be taken into account in the optimization problem by associating
 a reward to each service’s transition, besides the target’s rewards.</p>
 
 <h2 id="preliminaries">Preliminaries</h2>
-<p>\textbf{MDPs.}
+<p><b>MDPs.</b>
 A Markov Decision Process (MDP) $\M =
 \langle S,A,T,R\rangle$ contains a set $S$ of states, a set $A$ of actions, a
 transition function $T : S\times A \to Prob(S)$ that returns for
@@ -204,14 +204,14 @@ that is Markovian $\rho : S \to A$, i.e., $\rho$ depends only on the
 current state, and deterministic \cite{puterman1994markov}.
 Among techniques for finding 
 an optimal policy of an MDP,
-there are \emph{value iteration} and \emph{policy iteration} \cite{sutton2018reinforcement}.
+there are <i>value iteration</i> and <i>policy iteration</i> \cite{sutton2018reinforcement}.
 
-\noindent \textbf{The Roman Model in stochastic settings.}
+<b>The Roman Model in stochastic settings.</b>
 The problem of service composition,
 i.e. the ability to generate
 new, more useful services from existing ones, has been considered in the literature for over a decade \cite{hull2008artifact,medjahed2011service,degiacomo2014automated}.
 The goal is, given a specification of the behavior of the target
-service, to build a controller, known as an \emph{orchestrator}, that uses existing services
+service, to build a controller, known as an <i>orchestrator</i>, that uses existing services
 to satisfy the requirements of the target service.
 Here we concentrate on the approach known in literature as the “Roman model" \cite{berardi2003automatic,berardi2005automatic}: each available
 service is modeled as a finite-state machines (FSM), in which at each state, the service offers
@@ -226,7 +226,7 @@ notion of the ``best-possible" solution. A model with this notion has been devel
 composition problem, first presented in \cite{yadav2011decision}. In this model, an optimal
 solution can be found by solving an appropriate probabilistic planning problem (e.g. an MDP)
 derived from the services and requirement specifications.
-													 Due to lack of space, we do not report the details of such technique. </p>
+Due to lack of space, we do not report the details of such technique. </p>
 
 
 <h2 id="assumptions">Assumptions</h2>
