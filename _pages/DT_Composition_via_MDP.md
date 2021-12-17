@@ -143,7 +143,7 @@ $P_t: \Sigma_t \to \pi(A) \cup \emptyset$ is the action distribution function,
 $R_t : \Sigma_t \times A \to \mathbb{R}$ is the reward function.
 
 A <i>stochastic system service</i> $\tilde{\mathcal{Z}}$ 
-of a community of stochastic services  $\tilde{\mathcal{C}}$=${\tilde{\mathcal{S_1}}$,$\dots$,$\tilde{\mathcal{S_n}}}$ is a stochastic service
+of a community of stochastic services  $\tilde{\mathcal{C}}$=${\tilde{\mathcal{S_1}}$, . . . ,$\tilde{\mathcal{S_n}}}$ is a stochastic service
 where $\tilde{\mathcal{Z}} = \langle \Sigma_z, \sigma_{z0}, F_z, A, P_z, R_z\rangle$ are defined as follows:
 $\Sigma_z = \Sigma_1 \times \cdots \times \Sigma_n$,
 $\sigma_{z_0} = (\sigma_{10}, \dots, \sigma_{n0})$,
