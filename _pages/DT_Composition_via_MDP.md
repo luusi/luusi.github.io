@@ -222,11 +222,10 @@ The composition MDP is a function of the system service and the target service a
 
 This definition is pretty similar to the construction
 proposed in (Brafman et al., 2017) <d-cite key="brafman2017service"> brafman2017service </d-cite>, with the difference that now,
-in the transition function,
-we need to take into account also the probability of transitioning
-to the system successor state $\sigma'_z$ from $\sigma_z$ doing 
+in the transition function, we need to take into account also the probability of transitioning
+to the system successor state $\sigma$'$_z$ from $\sigma_z$ doing 
 the system action $\langle a, i\rangle$, 
-i.e. $P_z(\sigma'_z\mid \sigma_z, \langle a, i\rangle)$.
+i.e. $P_z$($\sigma$'$_z\mid \sigma_z, \langle a, i\rangle)$.
 Moreover, in the reward function, we need to take into account
 also the reward observed from doing system action 
 $\langle a, i\rangle$ in $\sigma_z$, and sum it to the 
@@ -237,14 +236,14 @@ $\gamma(\sigma_z,\sigma_t,a) = \rho(\langle \sigma_z,\sigma_t,a\rangle$ is an op
 To summarize, given the specifications of the set of stochastic services and the target service, first compute the composition MDP, then find an optimal policy for it, and then deploy the policy in an orchestration setting and dispatch the request to the chosen service according to the computed policy.
 ### Use case
 Consider the following scenario: there is an industrial process of ceramics production in which a product must be processed sequentially in different ways.
-	Each sub-task can be completed by a set of <i>available services</i>. The tasks
+Each sub-task can be completed by a set of <i>available services</i>. The tasks
 to be carried out in order to complete the industrial process are: provisioning, moulding, drying,
 first baking, enamelling, painting, second baking and shipping. Such tasks can be accomplished
 by different types of machines or human workers. Each available service that can perform the
 task can be seen as finite state machines with a probability and a reward associated to each
 action. There could be multiple services for the same task, e.g. multiple version of a machine
 (new one and old one) and a human that can perform the task required, and so on.
-% 
+ 
 When an available service is being assigned a task, this has a <i>task cost</i> in terms of time taken
 and resources needed for the completion of the operation on that specific service. 
 Usually, in terms of task cost, machines are cheaper
