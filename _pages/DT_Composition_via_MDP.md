@@ -79,7 +79,7 @@ in which not only the target but also the services are allowed to behave stochas
 
 ## Preliminaries
 <b>MDPs.</b>
-A Markov Decision Process (MDP) $\M =
+A Markov Decision Process (MDP) $\mathcal{M} =
 \langle S,A,T,R\rangle$ contains a set $S$ of states, a set $A$ of actions, a
 transition function $T : S\times A \to Prob(S)$ that returns for
 every state $s$ and action $a$ a distribution over the next state,
