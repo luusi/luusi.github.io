@@ -6,6 +6,8 @@ description: Master of Science in Engineering in Computer Science
 
 authors:
   - name: G. D. Giacomo, M. Favorito, F. Leotta, M. Mecella, and L. Silo
+
+conference proceedings: ITBPM@BPM, 2021, vol. 2952, pp. 44–49
     
 permalink: /DT_Composition_via_MDP
 includelink: true
@@ -57,7 +59,7 @@ stateful services wrapping the functionalities of machines
 and tasks of human operators.
 
 Nevertheless, there is an inherent limitation of approach based on the classical Roman model, which is the assumption that the available services, i.e. the services that can be used to realize the target service,
-behave \emph{deterministically}. This assumption is often unrealistic, because in practice 
+behave <i>deterministically</i>. This assumption is often unrealistic, because in practice 
 the underlying physical system modeled as a set of services might show non-deterministic behaviour due to the complexity of the domain, or due to an inherent uncertainty on the dynamics of such system. In these cases, the deterministic service model is not expressive enough to capture crucial facets of the system being modelled. 
  
 Moreover, the above-mentioned techniques work only when the target is fully realizable, i.e.
