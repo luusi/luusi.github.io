@@ -115,7 +115,7 @@ services. The required service (the requirement) is specified using a FSM, too.
 Unfortunately, it is not always possible to synthesize a service that fully conforms with the
 requirement specification. This zero-one situation, where we can either synthesize a perfect
 solution or fail, often is not very applicable. Rather than returning no answer, we may want
-notion of the ``best-possible" solution. A model with this notion has been developed in (Brafman et al., 2017) <d-cite key="brafman2017service"> brafman2017service </d-cite>, where the authors discuss and elaborate upon a probabilistic model for the service
+notion of the "best-possible" solution. A model with this notion has been developed in (Brafman et al., 2017) <d-cite key="brafman2017service"> brafman2017service </d-cite>, where the authors discuss and elaborate upon a probabilistic model for the service
 composition problem, first presented in (Yadav et al., 2011) <d-cite key="yadav2011decision"> yadav2011decision </d-cite>. In this model, an optimal
 solution can be found by solving an appropriate probabilistic planning problem (e.g. an MDP)
 derived from the services and requirement specifications.
