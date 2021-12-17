@@ -11,7 +11,7 @@ permalink: /DT_Composition_via_MDP
 includelink: true
 identifier: /DT_Composition_via_MDP
 order: 4
-bibliography: _pages/Multi_UAV/Multi-UAV.bib
+bibliography: _pages/DT_Composition/DT_Composition.bib
 
 ---
 
