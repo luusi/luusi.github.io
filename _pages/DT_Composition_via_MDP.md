@@ -2,12 +2,11 @@
 layout: post_page
 title: Digital Twins Composition via Markov Decision Processes
 description: Master of Science in Engineering in Computer Science 
-
+date: 2021-04-16 22:00:00 UTC
 
 authors:
   - name: G. D. Giacomo, M. Favorito, F. Leotta, M. Mecella, and L. Silo
 
-conference proceedings: ITBPM@BPM, 2021, vol. 2952, pp. 44–49
     
 permalink: /DT_Composition_via_MDP
 includelink: true
@@ -54,7 +53,7 @@ the physical one.
 In particular, 
 inspired by the Roman model for service
 composition \cite{berardi2003automatic,berardi2005automatic}, they consider smart manufacturing scenarios
-where DTs of physical systems \textemdash or, simply, twins \textemdash provide
+where DTs of physical systems - or, simply, twins - provide
 stateful services wrapping the functionalities of machines
 and tasks of human operators.
 
