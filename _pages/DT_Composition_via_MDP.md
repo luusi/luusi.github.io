@@ -5,10 +5,8 @@ description: Master of Science in Engineering in Computer Science
 date: 2021-04-16 22:00:00 UTC
 
 authors:
-  - name: Luciana Silo
-    url: https://luusi.github.io
-  - name: Supervised by Prof. Giuseppe De Giacomo
-    url: https://sites.google.com/a/dis.uniroma1.it/iocchi/home
+  - name: G. D. Giacomo, M. Favorito, F. Leotta, M. Mecella, and L. Silo
+    
 permalink: /DT_Composition_via_MDP
 includelink: true
 identifier: /DT_Composition_via_MDP
