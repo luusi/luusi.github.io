@@ -120,11 +120,6 @@ solution can be found by solving an appropriate probabilistic planning problem (
 derived from the services and requirement specifications.
 Due to lack of space, we do not report the details of such technique.
 
-## Assumptions 
-- We assume a global clock, which measures the time during the evolution of the scenario for each agent $\alpha_i$, from 0 to T.
-- Let’s consider a set of asynchronous goals, in which each agent can decide to execute its task at any time independently from the other agents.
-- Each agent does not know where the other agents are at any given instant of time.
-
 ## Problem  
 Before stating the problem, we give preliminary definitions.
 A <i>stochastic service</i> is a tuple
@@ -135,7 +130,7 @@ and $R_s : \Sigma_s\times A\to \mathbb{R}$ is the reward function.
 In short words, the stochastic service is the stochastic variant
 of the service defined in the classical Roman model, and it can be seen as an MDP itself.
 
-A <i>target service</i>, as defined in \cite{brafman2017service}, is $\T= \langle \Sigma_t, \sigma_{t0}, F_t, A, \delta_t,P_t,R_t\rangle$, 
+A <i>target service</i>, as defined in (Brafman et al., 2017) <d-cite key="brafman2017service"> brafman2017service </d-cite>, is $\T= \langle \Sigma_t, \sigma_{t0}, F_t, A, \delta_t,P_t,R_t\rangle$, 
 where 
 $\Sigma_t$ is the finite set of service states,
 $\sigma_{t0}\in \Sigma$ is the initial state,
@@ -179,7 +174,7 @@ target history.
 Let 
 $P_\gamma(h) = \prod_{i=0}^{|h|} P_t \big(\sigma_{t,i}, a_{i+1}\big)
 P_z\big(\sigma_{z,i+1}\mid \sigma_{z,i},\langle a_{i+1},\gamma(\sigma_{t,i}, \sigma_{z,i}, a_{i+1})\rangle)\big)$ be the probability of a (joint) history $h =  \sigma_{t0}\sigma_{z0}\langle a_1,j_1 \rangle \sigma_{t1}\sigma_{z1}\langle a_2,j_2 \rangle\dots$ under orchestrator $\gamma$.
-% 
+
 Intuitively, at every step, we take into account the probability,
 determined by $P_t$, that the
 user does action $a_{i+1}$ in the target state $\sigma_{t,i}$,
