@@ -43,7 +43,7 @@ interpreted by analytical tools, in order to improve decision making.
 
 Inspired by the research about automatic orchestration and
 composition of software artifacts, such as Web services,
-in \cite{catarci2019conceptual} it has been argued that
+in (Catarci et al., 2019) <d-cite key="catarci2019conceptual"> catarci2019conceptual </d-cite> it has been argued that
 an important step towards the development
 of new automation techniques in smart manufacturing is the
 modeling of DT services and data as software artifacts, and that
@@ -65,7 +65,7 @@ Moreover, the above-mentioned techniques work only when the target is fully real
 the specification can either be satisfied or not, with no middle ground.
 In the context of Industry 4.0 this might be seldom the case, and instead it would be preferred a technique that, rather than returning no answer, 
 returns the ``best-possible" solution under the actual circumstances.
-The work~\cite{brafman2017service}
+The work (Brafman et al., 2017) <d-cite key="brafman2017service"> brafman2017service </d-cite>
 contributes in this direction by providing
 a solution technique that coincides with the exact solution if a composition exists;
 otherwise it provides an approximate solution that maximizes the expected
@@ -73,7 +73,7 @@ sum of values of the target service's requests.
 Unfortunately, such model is not expressive enough to capture the non-determinsitic behaviour of the available services which, as argued above, is a must-have in our setting.
 
 In this paper, we marry the vision of employing service composition techniques to orchestrate digital twins. We propose a generalization to
-the service composition in stochastic setting proposed in \cite{brafman2017service},
+the service composition in stochastic setting proposed in (Brafman et al., 2017) <d-cite key="brafman2017service"> brafman2017service </d-cite>,
 in which not only the target but also the services are allowed to behave stochastically. Moreover, we allow the services to be taken into account in the optimization problem by associating a reward to each service's transition, besides the target's rewards. 
 
 ## Preliminaries
@@ -85,27 +85,27 @@ every state $s$ and action $a$ a distribution over the next state,
 and a reward function $R : S\times A\to \mathbb{R}$
 that specifies the reward (a real value) received by the agent when transitioning
 from state $s$ to state $s'$ by applying action $a$. A
-solution to an MDP is a function, called a \emph{policy}, assigning
+solution to an MDP is a function, called a <i>policy</i>, assigning
 an action to each state, possibly with a dependency on past
-states and actions. The \emph{value} of a policy $\rho$ at state $s$, denoted
+states and actions. The <i>value</i> of a policy $\rho$ at state $s$, denoted
 $v_\rho(s)$, is the expected sum of (possibly discounted by a factor $\lambda$, with $0\leq \lambda < 1$) rewards when starting at state $s$ and
 selecting actions based on $\rho$. Typically, the MDP is assumed
 to start in an initial state $s_0$, so policy optimality is evaluated
 w.r.t. $v_\rho(s_0)$. Every MDP has an optimal policy $\rho^*$. In discounted cumulative settings, there exists an optimal policy
 that is Markovian $\rho : S \to A$, i.e., $\rho$ depends only on the
-current state, and deterministic \cite{puterman1994markov}.
+current state, and deterministic (Puterman et al., 1994) <d-cite key="puterman1994markov"> puterman1994markov </d-cite>.
 Among techniques for finding 
 an optimal policy of an MDP,
-there are <i>value iteration</i> and <i>policy iteration</i> \cite{sutton2018reinforcement}.
+there are <i>value iteration</i> and <i>policy iteration</i> (Sutton et al., 2018) <d-cite key="sutton2018reinforcement"> sutton2018reinforcement </d-cite>.
 
 <b>The Roman Model in stochastic settings.</b>
 The problem of service composition,
 i.e. the ability to generate
-new, more useful services from existing ones, has been considered in the literature for over a decade \cite{hull2008artifact,medjahed2011service,degiacomo2014automated}.
+new, more useful services from existing ones, has been considered in the literature for over a decade (Hull et al., 2008) (Medjahed et al., 2011) (DeGiacomo et al., 2014) <d-cite key="hull2008artifact"> hull2008artifact </d-cite> <d-cite key="medjahed2011service"> medjahed2011service </d-cite> <d-cite key="degiacomo2014automated"> degiacomo2014automated </d-cite>.
 The goal is, given a specification of the behavior of the target
 service, to build a controller, known as an <i>orchestrator</i>, that uses existing services
 to satisfy the requirements of the target service.
-Here we concentrate on the approach known in literature as the “Roman model" \cite{berardi2003automatic,berardi2005automatic}: each available
+Here we concentrate on the approach known in literature as the “Roman model" (Berardi et al., 2003) (Berardi et al., 2005) <d-cite key="berardi2003automatic"> berardi2003automatic </d-cite> <d-cite key="berardi2005automatic"> berardi2005automatic </d-cite>: each available
 service is modeled as a finite-state machines (FSM), in which at each state, the service offers
 a certain set of actions, where each action changes the state of the service in some way. The
 designer is interested in generating a new service (referred to as target) from the set of existing
@@ -114,8 +114,8 @@ services. The required service (the requirement) is specified using a FSM, too.
 Unfortunately, it is not always possible to synthesize a service that fully conforms with the
 requirement specification. This zero-one situation, where we can either synthesize a perfect
 solution or fail, often is not very applicable. Rather than returning no answer, we may want
-notion of the ``best-possible" solution. A model with this notion has been developed in \cite{brafman2017service}, where the authors discuss and elaborate upon a probabilistic model for the service
-composition problem, first presented in \cite{yadav2011decision}. In this model, an optimal
+notion of the ``best-possible" solution. A model with this notion has been developed in (Brafman et al., 2017) <d-cite key="brafman2017service"> brafman2017service </d-cite>, where the authors discuss and elaborate upon a probabilistic model for the service
+composition problem, first presented in (Yadav et al., 2011) <d-cite key="yadav2011decision"> yadav2011decision </d-cite>. In this model, an optimal
 solution can be found by solving an appropriate probabilistic planning problem (e.g. an MDP)
 derived from the services and requirement specifications.
 Due to lack of space, we do not report the details of such technique.
