@@ -249,7 +249,7 @@ and $R_s : \Sigma_s\times A\to \mathbb{R}$ is the reward function.
 In short words, the stochastic service is the stochastic variant
 of the service defined in the classical Roman model, and it can be seen as an MDP itself.
 
-A <i>target service</i>, as defined in (Brafman et al., 2017) <d-cite key="brafman2017service"> brafman2017service </d-cite>, is $\T= \langle \Sigma_t, \sigma_{t0}, F_t, A, \delta_t,P_t,R_t\rangle$, 
+A <i>target service</i>, as defined in (Brafman et al., 2017) <d-cite key="brafman2017service"> brafman2017service </d-cite>, is $\mathcal{T}= \langle \Sigma_t, \sigma_{t0}, F_t, A, \delta_t,P_t,R_t\rangle$, 
 where 
 $\Sigma_t$ is the finite set of service states,
 $\sigma_{t0}\in \Sigma$ is the initial state,
@@ -260,19 +260,19 @@ is the service's deterministic and partial transition function,
 $P_t: \Sigma_t \to \pi(A) \cup \emptyset$ is the action distribution function, 
 $R_t : \Sigma_t \times A \to \mathbb{R}$ is the reward function.
 
-A <i>stochastic system service</i> $\tilde{\Z}$ 
-of a community of stochastic services  $\tilde{\C}=\{\tilde{\S_1},\dots,\tilde{\S_n}\}$ is a stochastic service
-where $\tilde{\Z} = \langle \Sigma_z, \sigma_{z0}, F_z, A, P_z, R_z\rangle$ are defined as follows:
+A <i>stochastic system service</i> $\tilde{\mathcal{Z}}$ 
+of a community of stochastic services  $\tilde{\mathcal{C}}=\{\tilde{\mathcal{S_1}},\dots,\tilde{\mathcal{S_n}}\}$ is a stochastic service
+where $\tilde{\mathcal{Z}} = \langle \Sigma_z, \sigma_{z0}, F_z, A, P_z, R_z\rangle$ are defined as follows:
 $\Sigma_z = \Sigma_1 \times \cdots \times \Sigma_n$,
 $\sigma_{z_0} = (\sigma_{10}, \dots, \sigma_{n0})$,
 $F_z = \{ (\sigma_1, \dots, \sigma_n) \mid \sigma_i\in F_i, 1\le i \le n\}$,
 $A_z = A \times \{1,\dots n\}$ is the set of pairs $(a, i)$ formed 
 by a shared action $a$ and the index $i$ of the service that executes it,
-$P_z(\bm{\sigma'} \mid \bm{\sigma}, (a, i)) = P(\sigma_i' \mid \sigma_i, a)$, for $\bm{\sigma} = (\sigma_1\dots\sigma_n)$,
-$\bm{\sigma'} = (\sigma_1'\dots\sigma_n')$
+	$P_z(<b>{\sigma'}</b> \mid <b>{\sigma}</b>, (a, i)) = P(\sigma_i' \mid \sigma_i, a)$, for $<b>{\sigma}</b> = (\sigma_1\dots\sigma_n)$,
+	$<b>{\sigma'}</b> = (\sigma_1'\dots\sigma_n')$
 and $a\in A_i(\sigma_i)$,
 with $\sigma_i\in\Sigma_i$ and  $\sigma_j = \sigma'_j$ for $j\neq i$,
-$R_z(\bm{\sigma}, (a, i)) = R_i(\sigma_i, a)$ for $\bm{\sigma}\in \Sigma_z$, $a\in A_i(\sigma_i)$.
+	$R_z(<b>{\sigma}</b>, (a, i)) = R_i(\sigma_i, a)$ for $<b>{\sigma}</b>\in \Sigma_z$, $a\in A_i(\sigma_i)$.
 
 We define the set of joint histories of the target and the system service
 as $H_{t,z} = \Sigma_t\times\Sigma_z \times (A\times \Sigma_t\times\Sigma_z)^*$. A joint history
