@@ -52,7 +52,7 @@ the digital world can be leveraged to improve automation in
 the physical one. 
 In particular, 
 inspired by the Roman model for service
-composition \cite{berardi2003automatic,berardi2005automatic}, they consider smart manufacturing scenarios
+composition (Berardi et al., 2003) (Berardi et al., 2005) <d-cite key="berardi2003automatic"> berardi2003automatic </d-cite> <d-cite key="berardi2005automatic"> berardi2005automatic </d-cite>, they consider smart manufacturing scenarios
 where DTs of physical systems - or, simply, twins - provide
 stateful services wrapping the functionalities of machines
 and tasks of human operators.
