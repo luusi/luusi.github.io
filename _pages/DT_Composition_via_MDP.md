@@ -151,14 +151,10 @@ $A_z = A \times \{1,\dots n\}$ is the set of pairs $(a, i)$ formed
 by a shared action $a$ and the index $i$ of the service that executes it,
 $P_z(\bm{\sigma'} \mid \bm{\sigma}, (a, i)) = P(\sigma_i' \mid \sigma_i, a)$, for $\bm{\sigma} = (\sigma_1\dots\sigma_n)$,
 $\bm{\sigma'} = (\sigma_1'\dots\sigma_n')$
-and $a\in A_i(\sigma_i)$,
-with $\sigma_i\in\Sigma_i$ and  $\sigma_j = \sigma'_j$ for $j\neq i$,
-$R_z(\bm{\sigma}, (a, i)) = R_i(\sigma_i, a)$ for $\bm{\sigma}\in \Sigma_z$, $a\in A_i(\sigma_i)$.
+and $a\in A_i(\sigma_i)$,  with $\sigma_i\in\Sigma_i$ and  $\sigma_j = \sigma'_j$ for $j\neq i$, $R_z(\bm{\sigma}, (a, i)) = R_i(\sigma_i, a)$ for $\bm{\sigma}\in \Sigma_z$, $a\in A_i(\sigma_i)$.
 
 We define the set of joint histories of the target and the system service
-as $H_{t,z} = \Sigma_t\times\Sigma_z \times (A\times \Sigma_t\times\Sigma_z)^*$. A joint history
-$h_{t,z}=\sigma_{t,0}\sigma_{z,0}a_1\sigma_{t,1}\sigma_{z,1}a_2\dots$ is an element of $H_{t,z}$. 
-The projection of $h_{t,z}$ over the target (system)
+as $H_{t,z} = \Sigma_t\times\Sigma_z \times (A\times \Sigma_t\times\Sigma_z)^*$. A joint history $h_{t,z}=\sigma_{t,0}\sigma_{z,0}a_1\sigma_{t,1}\sigma_{z,1}a_2\dots$ is an element of $H_{t,z}$. The projection of $h_{t,z}$ over the target (system)
 actions is $\pi_t(h_{t,z}) = h_t$ ($\pi_z(h_{t,z}) = h_z$).
 
 An orchestrator 
@@ -225,7 +221,7 @@ The composition MDP is a function of the system service and the target service a
         if $(a,i)\in A(\sigma_z)$ and $0$ otherwise.
 
 This definition is pretty similar to the construction
-proposed in \cite{brafman2017service}, with the difference that now,
+proposed in (Brafman et al., 2017) <d-cite key="brafman2017service"> brafman2017service </d-cite>, with the difference that now,
 in the transition function,
 we need to take into account also the probability of transitioning
 to the system successor state $\sigma'_z$ from $\sigma_z$ doing 
