@@ -30,7 +30,7 @@ The continuous evolution of technologies in the fields of communication, network
 computing, applied to the more traditional world of industrial automation, in order to increase
 productivity and quality, to ease workers' lives, and to define new business opportunities, has
 created the so-called <i>smart manufacturing</i>, or <i>Industry 4.0</i>.
-Digital Twins (DTs)\footnote{http://www.forbes.com/sites/bernardmarr/2017/03/06/what-is-digital-twin-technology-and-why-is-it-so-important} are up-to-date digital descriptions of physical objects and their operating
+Digital Twins (DTs) are up-to-date digital descriptions of physical objects and their operating
 status. Modern information systems and industrial machines may natively come out with
 their digital twin; in other cases especially when the approach is applied to already established
 factories and production processes, digital twins are obtained by wrapping actors that are
