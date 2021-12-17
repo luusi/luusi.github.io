@@ -23,6 +23,7 @@ The use of Digital Twins is key in Industry 4.0, in the Industrial Internet of T
 	of the target service. The solution to this MDP induces an orchestrator that coincides with the exact solution if a composition exists. Otherwise, it provides
 	an approximate solution that maximizes the expected discounted sum of values of user requests that can be serviced. We formalize stochastic service composition
 	and we present a proof-of-concept implementation, and we discuss a case study in an Industry 4.0 scenario.
+	
 	<b>Keywords:</b> Service Composition The Roman Model Digital Twins Industry 4.0 Smart Manufacturing
   
 ## Introduction 
