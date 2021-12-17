@@ -17,14 +17,14 @@ bibliography: _pages/DT_Composition/DT_Composition.bib
 ---
 
 The use of Digital Twins is key in Industry 4.0, in the Industrial Internet of Things, engineering, and manufacturing business space.
-	For this reason, they are becoming of particular interest for different fields in Artificial Intelligence (AI) and Computer Science (CS).
-	In this work, we focus on the orchestration of Digital Twins. We manage this orchestration using Markov Decision Processes (MDP), given a specification 
-	of the behaviour of the target service, to build a controller, known as an orchestrator, that uses existing stochastic services to satisfy the requirements 
-	of the target service. The solution to this MDP induces an orchestrator that coincides with the exact solution if a composition exists. Otherwise, it provides
-	an approximate solution that maximizes the expected discounted sum of values of user requests that can be serviced. We formalize stochastic service composition
-	and we present a proof-of-concept implementation, and we discuss a case study in an Industry 4.0 scenario.
-	
-	<b>Keywords:</b> Service Composition The Roman Model Digital Twins Industry 4.0 Smart Manufacturing
+For this reason, they are becoming of particular interest for different fields in Artificial Intelligence (AI) and Computer Science (CS).
+In this work, we focus on the orchestration of Digital Twins. We manage this orchestration using Markov Decision Processes (MDP), given a specification 
+of the behaviour of the target service, to build a controller, known as an orchestrator, that uses existing stochastic services to satisfy the requirements 
+of the target service. The solution to this MDP induces an orchestrator that coincides with the exact solution if a composition exists. Otherwise, it provides
+an approximate solution that maximizes the expected discounted sum of values of user requests that can be serviced. We formalize stochastic service composition
+and we present a proof-of-concept implementation, and we discuss a case study in an Industry 4.0 scenario.
+
+<b>Keywords:</b> Service Composition The Roman Model Digital Twins Industry 4.0 Smart Manufacturing
   
 ## Introduction 
 The continuous evolution of technologies in the fields of communication, networking, storage and
