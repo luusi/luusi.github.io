@@ -65,7 +65,7 @@ the underlying physical system modeled as a set of services might show non-deter
 Moreover, the above-mentioned techniques work only when the target is fully realizable, i.e.
 the specification can either be satisfied or not, with no middle ground.
 In the context of Industry 4.0 this might be seldom the case, and instead it would be preferred a technique that, rather than returning no answer, 
-returns the ``best-possible" solution under the actual circumstances.
+returns the "best-possible" solution under the actual circumstances.
 The work (Brafman et al., 2017) <d-cite key="brafman2017service"> brafman2017service </d-cite>
 contributes in this direction by providing
 a solution technique that coincides with the exact solution if a composition exists;
