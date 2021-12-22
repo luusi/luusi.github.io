@@ -158,13 +158,13 @@ as $H_{t,z} = \Sigma_t\times\Sigma_z \times (A\times \Sigma_t\times\Sigma_z)^*$.
 actions is $\pi_t(h_{t,z}) = h_t$ ($\pi_z(h_{t,z}) = h_z$).
 
 An orchestrator 
-$\gamma: \Sigma_t\times\Sigma_z\times A \to \{1,\dots,n\}$,
+$\gamma: \Sigma_t\times\Sigma_z\times A \to$ {$1$, . . . , $n$},
 is a mapping from a state of the target-system service and user action
 $(\sigma_t, \sigma_z, a)\in \Sigma_t\times\Sigma_z\times A$
-to the index $j\in \{1,\dots,n\}$ of the service that must handle it.
+to the index $j\in$ {$1$, . . . ,$n$} of the service that must handle it.
 Crucially, since the stochasticity comes also from the services,
-the orchestrator \emph{does} affect the probability of an history $h_{t,z}$.
-Moreover, in general, there are \emph{several} system histories associated to a given 
+the orchestrator <i>does</i> affect the probability of an history $h_{t,z}$.
+Moreover, in general, there are <i>several</i> system histories associated to a given 
 target history.
 
 Let 
