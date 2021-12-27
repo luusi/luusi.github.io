@@ -268,8 +268,8 @@ $\sigma_{z_0} = (\sigma_{10}$, . . . , $\sigma_{n0})$,
 $F_z$ = {$(\sigma_1$, . . ., $\sigma_n) \mid \sigma_i\in F_i, 1\le i \le n$},
 $A_z = A \times$ {1, . . . , $n$} is the set of pairs $(a, i)$ formed 
 by a shared action $a$ and the index $i$ of the service that executes it,
-	$P_z$($\sigma$' $\mid$ $\sigma$, $(a, i))$ = $P$($\sigma_i$' $\mid$ $\sigma_i$, $a)$, for $\sigma$ = $(\sigma_1$ $\dots$ $\sigma_n)$,
-	$\sigma$' = ($\sigma_1$'$\dots\sigma_n$'$)$
+	$P_z$($\sigma$' $\mid$ $\sigma$, $(a, i))$ = $P$($\sigma_i$' $\mid$ $\sigma_i$, $a)$, for $\sigma$ = $(\sigma_1$, $\dots$, $\sigma_n)$,
+	$\sigma$' = ($\sigma_1$',$\dots,\sigma_n$'$)$
 and $a\in A_i(\sigma_i)$,
 with $\sigma_i\in\Sigma_i$ and  $\sigma_j$ = $\sigma$'$_j$ for $j\neq i$,
 	$R_z(\sigma, (a, i)) = R_i(\sigma_i, a)$ for $\sigma \in \Sigma_z$, $a\in A_i(\sigma_i)$.
@@ -318,7 +318,6 @@ Intuitively, we take into account both the reward that comes
 from the execution of action $a_{i+1}$ in the target service,
 but also the reward associated to the execution of that action
 in service $j$ chosen by orchestrator $\gamma$.
- 
 Now we can define the expected value of an orchestrator
 to be:
 $v(\gamma) = \mathbb{E}_{h_{t,z}\sim P_\gamma} \big[v_\gamma(h_{t,z})\cdot realizable(\gamma, \pi_t(h_{t,z})) \big]$
