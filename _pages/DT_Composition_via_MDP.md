@@ -203,7 +203,7 @@ where $realizable(\gamma,\pi_t(h_{t,z}))$ is 1 if $h_t = \pi_t(h_{t,z})$
 is realizable in $\gamma$ (i.e. all the possible target histories are processed correctly), and $0$ otherwise. That 
 is, $v(\gamma)$ is the expected value of histories realizable in $\gamma$. 
 Finally, we define an optimal orchestrator to be
-$\gamma$ = $\arg$ max$_{\gamma$'$}$ $v(\gamma$'$)$.
+$\gamma$ = $\arg$ max<sub>$\gamma$'</sub> $v(\gamma$'$)$.
 
 It can be shown that, under certain assumptions (i.e. target is realizable, every history has strictly positive value, and the target's rewards are always greater than services' rewards),
 	optimality of the orchestrator implies that the target is realized by the orchestrator.
