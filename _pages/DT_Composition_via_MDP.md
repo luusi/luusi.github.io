@@ -150,8 +150,8 @@ $\sigma_{z_0} = (\sigma_{10}$, . . . , $\sigma_{n0})$,
 $F_z$ = {($\sigma_1$, . . ., $\sigma_n) \mid \sigma_i\in F_i, 1\le i \le n$},
 $A_z = A \times$ {1, . . . , $n$} is the set of pairs $(a, i)$ formed 
 by a shared action $a$ and the index $i$ of the service that executes it,
-$P_z$($\sigma$' $\mid$ $\sigma$, $(a, i))$ = $P$($\sigma_i$' $\mid$ $\sigma_i$, $a)$, for $\sigma$ = ($\sigma_1$ $\cdots$ $\sigma_n)$,
-$\sigma$' = ($\sigma_1$'$\cdots\sigma_n$'$)$ and $a\in A_i(\sigma_i)$, with $\sigma_i\in\Sigma_i$ and  $\sigma_j$ = $\sigma$'$_j$ for $j\neq i$, $R_z(\sigma, (a, i)) = R_i(\sigma_i, a)$ for $\sigma \in \Sigma_z$, $a\in A_i(\sigma_i)$.
+$P_z$($\sigma$' $\mid$ $\sigma$, $(a, i))$ = $P$($\sigma_i$' $\mid$ $\sigma_i$, $a)$, for $\sigma$ = ($\sigma_1$, $\cdots$, $\sigma_n)$,
+$\sigma$' = ($\sigma_1$',$\cdots,\sigma_n$'$)$ and $a\in A_i(\sigma_i)$, with $\sigma_i\in\Sigma_i$ and  $\sigma_j$ = $\sigma$'$_j$ for $j\neq i$, $R_z(\sigma, (a, i)) = R_i(\sigma_i, a)$ for $\sigma \in \Sigma_z$, $a\in A_i(\sigma_i)$.
 
 We define the set of joint histories of the target and the system service
 as $H_{t,z} = \Sigma_t\times\Sigma_z \times (A\times \Sigma_t\times\Sigma_z)^*$. A joint history $h_{t,z}=\sigma_{t,0}\sigma_{z,0}a_1\sigma_{t,1}\sigma_{z,1}a_2\dots$ is an element of $H_{t,z}$. The projection of $h_{t,z}$ over the target (system)
