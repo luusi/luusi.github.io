@@ -196,7 +196,7 @@ in service $j$ chosen by orchestrator $\gamma$.
 
 Now we can define the expected value of an orchestrator
 to be:
-$v(\gamma)$ = $\mathbb{E}$<sub>h<sub>t,z</sub></sub><sub>&sim;P<sub>$\gamma$<\sub></sub>  $\big[v_\gamma(h_{t,z})$ &bull; <i>realizable</i> $(\gamma, \pi_t(h_{t,z})) \big]$
+$v(\gamma)$ = $\mathbb{E}$<sub>h<sub>t,z</sub></sub><sub>&sim;$P$<sub>$\gamma$</sub></sub>  $\big[v_\gamma(h_{t,z})$ &bull; <i>realizable</i> $(\gamma, \pi_t(h_{t,z})) \big]$
 where $realizable(\gamma,\pi_t(h_{t,z}))$ is 1 if $h_t = \pi_t(h_{t,z})$ 
 is realizable in $\gamma$ (i.e. all the possible target histories are processed correctly), and $0$ otherwise. That 
 is, $v(\gamma)$ is the expected value of histories realizable in $\gamma$. 
