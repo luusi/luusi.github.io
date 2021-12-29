@@ -85,7 +85,7 @@ transition function $T : S\times A \to Prob(S)$ that returns for
 every state $s$ and action $a$ a distribution over the next state,
 and a reward function $R : S\times A\to \mathbb{R}$
 that specifies the reward (a real value) received by the agent when transitioning
-from state $s$ to state $s'$ by applying action $a$. A
+from state $s$ to state $s$' by applying action $a$. A
 solution to an MDP is a function, called a <i>policy</i>, assigning
 an action to each state, possibly with a dependency on past
 states and actions. The <i>value</i> of a policy $\rho$ at state $s$, denoted
