@@ -193,7 +193,7 @@ Intuitively, we take into account both the reward that comes
 from the execution of action $a_{i+1}$ in the target service,
 but also the reward associated to the execution of that action
 in service $j$ chosen by orchestrator $\gamma$.
-% 
+
 Now we can define the expected value of an orchestrator
 to be:
 $v(\gamma)$ = $\mathbb{E}$<sub>h<sub>t,z</sub></sub><sub>&sim;</sub> $P_\gamma} \big[v_\gamma(h_{t,z})$ &bull; <i>realizable</i> $(\gamma, \pi_t(h_{t,z})) \big]$
