@@ -154,7 +154,7 @@ $P_z$($\sigma$' $\mid$ $\sigma$, $(a, i))$ = $P$($\sigma_i$' $\mid$ $\sigma_i$, 
 $\sigma$' = ($\sigma_1$', . . . ,$\sigma_n$'$)$ and $a\in A_i(\sigma_i)$, with $\sigma_i\in\Sigma_i$ and  $\sigma_j$ = $\sigma$'$_j$ for $j\neq i$, $R_z(\sigma, (a, i)) = R_i(\sigma_i, a)$ for $\sigma \in \Sigma_z$, $a\in A_i(\sigma_i)$.
 
 We define the set of joint histories of the target and the system service
-as $H_{t,z} = \Sigma_t\times\Sigma_z \times (A\times \Sigma_t\times\Sigma_z)^*$. A joint history $h_{t,z}=\sigma_{t,0}\sigma_{z,0}a_1\sigma_{t,1}\sigma_{z,1}a_2\dots$ is an element of $H_{t,z}$. The projection of $h_{t,z}$ over the target (system)
+as $H_{t,z} = \Sigma_t\times\Sigma_z \times (A\times \Sigma_t\times\Sigma_z)^*$. A joint history $h_{t,z}=\sigma_{t,0}\sigma_{z,0}a_1\sigma_{t,1}\sigma_{z,1}a_2$ . . . is an element of $H_{t,z}$. The projection of $h_{t,z}$ over the target (system)
 actions is $\pi_t(h_{t,z}) = h_t$ ($\pi_z(h_{t,z}) = h_z$).
 
 An orchestrator 
