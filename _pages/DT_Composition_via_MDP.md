@@ -176,7 +176,7 @@ determined by $P_t$, that the
 user does action $a_{i+1}$ in the target state $\sigma_{t,i}$,
 in conjunction with the probability, determined by $P_z$, that 
 the system service does the transition 
-$\sigma_{z,i}\xrightarrow{(a_{i+1}, j)} \sigma$'$_{z, i+1}$, 
+$\sigma_{z,i}\xrightarrow{(a_{i+1}, j)} \sigma$'$_z, i+1$, 
 where $j$ is the choice of the orchestrator at step $i$
 under orchestrator $\gamma$, i.e. $j = \gamma(\sigma_{t,i}, \sigma_{z,i}, a_{i+1})$.
 
