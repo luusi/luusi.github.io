@@ -2,7 +2,7 @@
 layout: post_page
 title: Digital Twins Composition via Markov Decision Processes
 description: Master of Science in Engineering in Computer Science 
-date: 2021-09-10 10:00:00 UTC
+conference proceedings: ITBPM@BPM, 2021, vol. 2952, pp. 44–49
 
 authors:
   - name: G. D. Giacomo, M. Favorito, F. Leotta, M. Mecella, and L. Silo
