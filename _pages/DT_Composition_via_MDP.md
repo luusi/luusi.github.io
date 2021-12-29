@@ -176,7 +176,7 @@ determined by $P_t$, that the
 user does action $a_{i+1}$ in the target state $\sigma_{t,i}$,
 in conjunction with the probability, determined by $P_z$, that 
 the system service does the transition 
-$\sigma_{z,i}\xrightarrow{(a_{i+1}, j)} \sigma$'<sub><i>z, i+1</i></sub>, where $j$ is the choice of the orchestrator at step $i$ under orchestrator $\gamma$, i.e. $j = \gamma(\sigma_{t,i}, \sigma_{z,i}, a_{i+1})$. 
+$\sigma_{z,i}\xrightarrow{(a_{i+1}, j)} \sigma$'<sub><i>$z, i+1$</i></sub>, where $j$ is the choice of the orchestrator at step $i$ under orchestrator $\gamma$, i.e. $j = \gamma(\sigma_{t,i}, \sigma_{z,i}, a_{i+1})$. 
 
 The value of a joint history under orchestrator $\gamma$ 
 is the sum of discounted rewards, both from the target and the system services:
@@ -196,7 +196,7 @@ in service $j$ chosen by orchestrator $\gamma$.
 
 Now we can define the expected value of an orchestrator
 to be:
-$v(\gamma)$ = $\mathbb{E}$<sub>h<sub>t,z</sub></sub><sub>&sim;$P$<sub>$\gamma$</sub></sub>  $\big[v_\gamma(h_{t,z})$ &bull; <i>realizable</i> $(\gamma, \pi_t(h_{t,z})) \big]$
+$v(\gamma)$ = $\mathbb{E}$<sub>$h$<sub>$t,z$</sub></sub><sub>&sim;$P$<sub>$\gamma$</sub></sub>  $\big[v_\gamma(h_{t,z})$ &bull; <i>realizable</i> $(\gamma, \pi_t(h_{t,z})) \big]$
 where $realizable(\gamma,\pi_t(h_{t,z}))$ is 1 if $h_t = \pi_t(h_{t,z})$ 
 is realizable in $\gamma$ (i.e. all the possible target histories are processed correctly), and $0$ otherwise. That 
 is, $v(\gamma)$ is the expected value of histories realizable in $\gamma$. 
