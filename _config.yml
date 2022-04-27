@@ -70,10 +70,10 @@ bootstrap:
 ############
 
 # Google services
-google_analytics: UA-162936928-1
+# google_analytics: UA-162936928-1
 google_analytics_measurements:
-- 'G-VLMZ2VWC3N'
-- 'G-DDYB9GX4XD'
+- 'G-PYV8T5NDKD'
+# - 'G-DDYB9GX4XD'
 
 # markdown: kramdown
 theme: minima
