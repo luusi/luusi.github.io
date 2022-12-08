@@ -72,7 +72,7 @@ bootstrap:
 # Google services
 # google_analytics: UA-162936928-1
 google_analytics_measurements:
-- 'G-PYV8T5NDKD'
+- 'G-7ZKM8729K1'
 # - 'G-DDYB9GX4XD'
 
 # markdown: kramdown
